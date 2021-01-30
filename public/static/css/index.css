@@ -1,0 +1,221 @@
+
+/* Raleway font */
+@font-face {
+    font-family: 'Raleway Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Raleway Regular'), url('../font/Raleway-Regular.ttf') format('opentype');
+}
+@font-face {
+    font-family: 'Raleway Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Raleway Bold'), url('../font/Raleway-Bold.ttf') format('opentype');
+}
+
+/* mono-space test */
+@font-face {
+    font-family: 'SyneMono Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('SyneMono Regular'), url('../font/SyneMono-Regular.ttf') format('opentype');
+}
+
+html, body {
+    font-family: 'Raleway Regular';
+    color: white;
+    background-color: black;
+}
+
+/* navbar */
+.navbar-nav {
+    background: ;
+}
+
+.navbar-brand {
+    font-size: 40px;
+}
+
+.nav-link {
+    font-size: 20px;
+}
+
+
+#bg_grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-image: url('../img/backgroud/index/background_grid.gif');
+    background-repeat: repeat;
+    z-index: 4;
+    width: 100%;
+    height: 1px;
+}
+
+/* typewriter */
+#type {
+    font-family: 'SyneMono Regular';
+    font-size: 36px;
+}
+
+.line-1{
+    position: relative;
+    top: -100px;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 1s steps(8) 1s 1 normal both,
+             blinkTextCursor 900ms steps(44) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 4.5em; }
+}
+
+@keyframes blinkTextCursor {
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+/* sponsors */
+#sponsors {
+    height: 450px;
+    text-align: center;
+}
+
+/* TODO: border-bottom */
+#headline:after {
+    content: "";
+    display: block;
+}
+
+.blob {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    display: inline-block;
+
+    width: 500px;
+    height: initial;
+
+    min-height: 250px;
+    
+    margin: 30px 40px;
+    padding: 20px 20px;
+
+    border: 1px solid #707070;
+}
+
+.sponsor {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 950px) {
+    #sponsors {
+        /* mobile */
+        visibility: hidden;
+    }
+}
+
+/* footer */
+#footer {
+    height: 300px;
+    background-color: #191919;
+
+    border-top: 1px solid #707070;
+}
+
+#logo_top {
+    width: 150px;
+    position: relative;
+    top: 0;
+
+    opacity: 1;
+    transition: all 1s;
+}
+
+#logo_footer {
+    display: block;
+    margin: 45px auto;
+}
+
+#social, #icon {
+    font-family: 'Raleway Bold';
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#social a, #icon a {
+    margin: 20px 20px;
+
+    color: white;
+    opacity: 50%;
+
+    text-decoration: none;
+}
+
+#icon {
+    display: none;
+}
+
+#copyright {
+    color: white;
+    opacity: 50%;
+
+    margin-top: 25px;
+    text-align: center;
+}
+
+#copyright a {
+    color: white;
+}
+
+hr {
+    width: 85%;
+    border: 1px solid #707070;
+    opacity: 30%;
+}
+
+
+@media screen and (max-width: 800px)  {
+    /* mobile */
+    #copyright {
+        visibility: hidden;
+    }
+
+    #copyright:after {
+        content: 'COPYRIGHT © ICEWALL. All rights reserved.';
+        visibility: visible;
+        
+        display: block;
+
+        position: relative;
+        top: -45px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* mobile */
+    #social {
+        display: none;
+    }
+    #icon {
+        display: block;
+    }
+}
+

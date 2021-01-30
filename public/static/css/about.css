@@ -1,0 +1,481 @@
+
+/* Raleway font */
+@font-face {
+    font-family: 'Raleway Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Raleway Regular'), url('../font/Raleway-Regular.ttf') format('opentype');
+}
+@font-face {
+    font-family: 'Raleway Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Raleway Bold'), url('../font/Raleway-Bold.ttf') format('opentype');
+}
+
+/* BM HANNA fonts */
+@font-face {
+    font-family: 'BM HANNA Pro';
+    font-weight: 400;
+    font-style: normal;
+    src: local('BM HANNA Pro'), url('../font/BMHANNAPro.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'BM HANNA Air';
+    font-weight: 400;
+    font-style: normal;
+    src: local('BM HANNA Air'), url('../font/BMHANNAAir_ttf.ttf') format('opentype');
+}
+
+/* Nanum Gothic */
+@font-face {
+    font-family: 'Nanum-Gothic Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Nanum-Gothic Regular'), url('../font/NanumGothic-Regular.ttf') format('opentype');
+}
+
+/* mono-space test */
+@font-face {
+    font-family: 'SyneMono Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('SyneMono Regular'), url('../font/SyneMono-Regular.ttf') format('opentype');
+}
+
+html, body {
+    font-family: 'Raleway Regular';
+    color: white;
+    background-color: #191919;
+
+    background-image: url(../img/backgroud/index/bg_1_290.png);
+    background-repeat: no-repeat;
+
+    margin: 0;
+}
+
+.navbar {
+    transition: top 0.3s;
+}
+
+nav ul li a {
+    color: #ddd !important;
+
+    transition: all 1s;
+}
+/* TODO: border-bottom showing in a second */
+nav ul li a:after {
+    content: "";
+    display: block;
+    width: 0%;
+    
+    margin: 8px 0;
+}
+
+nav ul li a:hover {
+    color: #fff !important;
+    border-bottom: 1px solid #fff;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+}
+
+
+#bg_grid {
+    background-image: url(../img/backgroud/index/background_grid.gif);
+    background-repeat: repeat;
+}
+
+a {
+    text-decoration: none;
+}
+
+#top {
+    height: 290px;
+
+}
+
+#top img {
+    width: 100%;
+}
+
+#hamburger {
+    cursor: pointer;
+
+    display: none;
+
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    z-index: 1030;
+
+    opacity: 1;
+    transition: all 1s;
+}
+
+#hamburger.open {
+    top: -65px;
+    opacity: 0;
+}
+
+#logo_top.open {
+    top: -100px;
+    opacity: 0;
+}
+
+#hamburger.close {
+    top: 35px;
+    opacity: 1;
+}
+
+#logo_top.close {
+    top: 0;
+    opacity: 1;
+}
+
+#menu {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgb(232, 230, 227);
+
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    left: -100%;
+
+    z-index: 10000;
+
+    transition: all 1s;
+}
+
+.bar {
+    width: 33px;
+    height: 4px;
+    background-color: #222;
+
+    margin: 6px 0;
+
+    /*transition: top 250ms linear;*/
+}
+
+#cross {
+    cursor: pointer;
+
+    color: #000;
+
+    font-size: 60px;
+
+    position: absolute;
+    top: 0px;
+    left: 23px;
+
+    opacity: 0;
+    transition: all 1s;
+    z-index: 10001;
+}
+
+#cross.open {
+    opacity: 1;
+}
+
+#cross.close {
+    opacity: 0;
+}
+
+.change1 {
+    background-color: #000;
+
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change2 {
+    background-color: #000;
+
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#menu.open {
+    left: 0;
+}
+
+#menu.close {
+    left: -100%;
+}
+
+#logo_menu {
+    position: relative;
+    top: 100px;
+    left: 50%;
+}
+
+#items {
+    position: absolute;
+}
+
+#items a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-item {
+    display: block;
+
+    font-size: 18px;
+    line-height: 50px;
+    letter-spacing: 2px;    
+}
+
+/* main */
+#main {
+    width: 1170px;
+    height: 678px;
+    background-color: #000000;
+
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#container {
+    font-family: 'Nanum-Gothic Regular';
+    width: 800px;
+    float: left;
+
+    margin: 30px 40px;
+}
+
+#container h1 {
+    font-family: 'Raleway Regular';
+    margin-bottom: 30px;
+}
+
+#sidebar {
+    width: 250px;
+    float: right;
+}
+
+.underline:after {
+    content: "";
+    display: block;
+    width: 90px;
+    border-bottom: 5px solid #1E4A97;
+
+    margin: 20px 0;
+}
+
+#sidebar h2 {
+    font-family: 'BM HANNA Pro';
+}
+
+#sidebar ul {
+    font-family: 'BM HANNA Air';
+    font-size: 20px;
+
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.list-top {
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+#sidebar ul > li {
+    padding: 15px 0;
+    border-bottom: 1px solid #707070;
+}
+
+/* footer */
+#footer {
+    height: 300px;
+    background-color: #191919;
+
+    border-top: 1px solid #707070;
+}
+
+#logo_top {
+    position: relative;
+    top: 0;
+
+    opacity: 1;
+    transition: all 1s;
+}
+
+#logo_footer {
+    display: block;
+    margin: 45px auto;
+
+    width: 226.9px;
+    height: 48.63px;
+}
+
+#social, #icon {
+    font-family: 'Raleway Bold';
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#social a, #icon a {
+    margin: 20px 20px;
+
+    color: white;
+    opacity: 50%;
+
+    text-decoration: none;
+}
+
+#icon {
+    display: none;
+}
+
+#copyright {
+    color: white;
+    opacity: 50%;
+
+    margin-top: 25px;
+    text-align: center;
+}
+
+#copyright a {
+    color: white;
+}
+
+hr {
+    width: 85%;
+    border: 1px solid #707070;
+    opacity: 30%;
+}
+
+/* typewriter */
+#type {
+    font-family: 'SyneMono Regular';
+    font-size: 36px;
+}
+
+.line-1{
+    position: relative;
+    top: -100px;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 1s steps(8) 1s 1 normal both,
+             blinkTextCursor 900ms steps(44) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 4.5em; }
+}
+
+@keyframes blinkTextCursor {
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+
+/* media query */
+@media screen and (min-width: 960px) {
+    #logo_menu {
+        margin-left: 0;
+        left: 80px;
+        top: 100px;
+    }
+
+    #items {
+        margin-left: 0;
+        left: 80px;
+        top: 277px;
+    } 
+}
+
+@media screen and (min-width: 300px) {
+    #logo_menu {
+        left: 50%;
+        margin-left: -75px;
+        top: 30px;
+    }
+
+    #items {
+        left: 50%;
+        margin-left: -75px;
+        top: 236px;
+    }
+}
+
+
+@media screen and (max-width: 1180px) {
+    #main {
+        width: 100%;
+        height: initial;
+        overflow-y: auto;
+    }
+
+    #container {
+        width: initial;
+        margin: 30px 5px;
+    }
+
+    #sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    nav ul li, .navbar-toggler {
+        display: none;
+    }
+
+    #hamburger {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 800px)  {
+    /* mobile */
+    #copyright {
+        visibility: hidden;
+    }
+
+    #copyright:after {
+        content: 'COPYRIGHT © ICEWALL. All rights reserved.';
+        visibility: visible;
+        
+        display: block;
+
+        position: relative;
+        top: -45px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* mobile */
+    #social {
+        display: none;
+    }
+    #icon {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #menu {
+        display: none;
+    }
+    #hamburger {
+        display: none;
+    }
+}
+
+
