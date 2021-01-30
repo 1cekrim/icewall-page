@@ -74,13 +74,13 @@ html, body {
 
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 1s steps(8) 1s 1 normal both,
+  animation: typewriter 4s steps(40, end) 1s 1 normal both,
              blinkTextCursor 900ms steps(44) infinite normal;
 }
 
 @keyframes typewriter {
   from { width: 0; }
-  to { width: 4.5em; }
+  to { width: 100%; }
 }
 
 @keyframes blinkTextCursor {
