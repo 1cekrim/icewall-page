@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
-import { Home } from './routes'
+import { Home, About } from './routes'
 import { useState } from 'react'
 
 const public_folder = (url) => process.env.PUBLIC_URL + url
@@ -71,9 +71,8 @@ function App() {
         </header>
         <main>
           <Switch>
-            <Route path="/" component={Home}>
-              
-            </Route>
+            <Route path="/about" component={About} />
+            <Route path="/" component={Home} />
           </Switch>
         </main>
         <footer id='footer'>
