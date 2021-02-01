@@ -1,5 +1,5 @@
 import React from 'react'
-const public_folder = (url) => process.env.PUBLIC_URL + url
+import { public_folder } from '../Tools'
 
 const About = () => {
   return (

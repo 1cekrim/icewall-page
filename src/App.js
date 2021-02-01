@@ -4,8 +4,8 @@ import { Home, About } from './routes'
 import { useState } from 'react'
 import 'bootstrap-social'
 import { GithubLogin } from './GithubLogin'
+import { public_folder } from './Tools'
 
-const public_folder = (url) => process.env.PUBLIC_URL + url
 const links_left = [
   { to: '/', text: 'Home' },
   { to: '/about', text: 'About' },
