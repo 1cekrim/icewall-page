@@ -1,17 +1,17 @@
 import './App.css'
+import React, { useState } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import { Home, About, Awards, Board, Gallary, Services } from './routes'
-import { useState } from 'react'
 import 'bootstrap-social'
 import { GithubLogin } from './GithubLogin'
-import { public_folder } from './Tools'
+import { PublicFolder } from './Tools'
 
-const links_left = [
+const linksLeft = [
   { to: '/', text: 'Home' },
   { to: '/about', text: 'About' },
   { to: '/services', text: 'Services' },
 ]
-const links_right = [
+const linksRight = [
   { to: '/awards', text: 'Awards' },
   { to: '/board', text: 'Board' },
   { to: '/gallary', text: 'Gallary' },
@@ -22,26 +22,28 @@ const Nav = () => {
     setActivedLink(to)
   }
 
-  const map_function = (link, _) => {
-    return (
-      <li
-        className={
-          'nav-item mx-2 my-3' + (link.to === activedLink ? ' active' : '')
-        }
+  const MapFunction = (link) => (
+    <li
+      className={`nav-item mx-2 my-3 ${
+        link.to === activedLink ? ' active' : ''
+      }`}
+    >
+      <Link
+        to={link.to}
+        className="nav-link"
         onClick={() => onClickLink(link.to)}
+        onKeyDown={() => onClickLink(link.to)}
       >
-        <Link to={link.to} className="nav-link">
-          <div>{link.text}</div>
-        </Link>
-      </li>
-    )
-  }
+        <div>{link.text}</div>
+      </Link>
+    </li>
+  )
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top justify-content-center navbar-dark navbar-fixed-top">
       <ul className="navbar-nav my-3">
         <div className="collapse navbar-collapse" id="navCodllapse">
-          {links_left.map(map_function)}
+          {linksLeft.map(MapFunction)}
         </div>
         <Link
           to="/"
@@ -59,14 +61,14 @@ const Nav = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navdCollapse">
-          {links_right.map(map_function)}
+          {linksRight.map(MapFunction)}
         </div>
         <div className="collapse" id="navCollapse">
-          {links_left.map(map_function)}
-          {links_right.map(map_function)}
+          {linksLeft.map(MapFunction)}
+          {linksRight.map(MapFunction)}
         </div>
       </ul>
     </nav>
@@ -82,9 +84,9 @@ function App() {
             <div
               id="bg_grid"
               style={{ display: 'inner-block', height: '100%' }}
-            ></div>
+            />
             <img
-              src={public_folder('/static/img/logo/icewall/icewall.svg')}
+              src={PublicFolder('/static/img/logo/icewall/icewall.svg')}
               alt="icewall-logo"
             />
             <p id="type" className="line-1 anim-typewriter">
@@ -92,11 +94,12 @@ function App() {
             </p>
             <Nav />
             <img
-              src={public_folder(
+              src={PublicFolder(
                 '/static/img/backgroud/index/background_index_1.png',
               )}
               className="top-backgroud-image ."
-            ></img>
+              alt="backgroud"
+            />
           </section>
         </header>
         <main>
@@ -111,7 +114,7 @@ function App() {
         </main>
         <footer id="footer">
           <img
-            src={public_folder('/static/img/logo/icewall/icewall.svg')}
+            src={PublicFolder('/static/img/logo/icewall/icewall.svg')}
             alt="icewall-logo"
             width="226.9"
             height="48.63"
@@ -127,19 +130,19 @@ function App() {
           </div>
           <div id="icon">
             <a href="mailto:icewall.executive@gmail.com">
-              <i className="fas fa-envelope"></i>
+              <i className="fas fa-envelope" />
             </a>
             <a href="https://www.facebook.com/icewall.hyu/">
-              <i className="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f" />
             </a>
             <a href="https://m.me/icewall.hyu">
-              <i className="fab fa-facebook-messenger"></i>
+              <i className="fab fa-facebook-messenger" />
             </a>
             <a href="https://github.com/HYU-ICEWALL">
-              <i className="fab fa-github"></i>
+              <i className="fab fa-github" />
             </a>
             <a href="https://www.youtube.com/channel/UCaVXnXoRT2y-8PcGXlt70Jg">
-              <i className="fab fa-youtube"></i>
+              <i className="fab fa-youtube" />
             </a>
           </div>
           <GithubLogin />
@@ -148,7 +151,7 @@ function App() {
             COPYRIGHT © 2020 Hanyang University Student CERT, ICEWALL. All
             rights reserved. ||
             <strong>
-              <a href="#">개인정보처리방침</a>
+              <div>개인정보처리방침</div>
             </strong>
           </p>
         </footer>

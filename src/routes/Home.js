@@ -1,31 +1,31 @@
 import React from 'react'
-import { public_folder } from '../Tools'
+import { PublicFolder } from '../Tools'
 
-const Home = () => {
-  return (
-    <section id="main">
-      <p id="demo"></p>
+const Home = () => (
+  <section id="main">
+    <p id="demo" />
 
-      <div id="sponsors">
-        <h1 id="headline">SPONSORS</h1>
+    <div id="sponsors">
+      <h1 id="headline">SPONSORS</h1>
 
-        <div class="blob">
-          <div class="box">
-            <img
-              class="sponsor"
-              src={public_folder('/static/img/sponsors/HYU_initial_kor.svg')}
-            />
-          </div>
-          <div class="box">
-            <img
-              class="sponsor"
-              src={public_folder('/static/img/sponsors/scv_soft.svg')}
-            />
-          </div>
+      <div className="blob">
+        <div className="box">
+          <img
+            className="sponsor"
+            src={PublicFolder('/static/img/sponsors/HYU_initial_kor.svg')}
+            alt="HYU"
+          />
+        </div>
+        <div className="box">
+          <img
+            className="sponsor"
+            src={PublicFolder('/static/img/sponsors/scv_soft.svg')}
+            alt="scv_soft"
+          />
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)
 
 export default Home
