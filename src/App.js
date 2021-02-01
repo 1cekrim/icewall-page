@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
-import { Home, About } from './routes'
+import { Home, About, Awards, Board, Gallary, Services } from './routes'
 import { useState } from 'react'
 import 'bootstrap-social'
 import { GithubLogin } from './GithubLogin'
@@ -101,6 +101,10 @@ function App() {
         </header>
         <main>
           <Switch>
+            <Route path="/awards" component={Awards} />
+            <Route path="/board" component={Board} />
+            <Route path="/gallary" component={Gallary} />
+            <Route path="/services" component={Services} />
             <Route path="/about" component={About} />
             <Route path="/" component={Home} />
           </Switch>
