@@ -1,43 +1,56 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useAsync } from 'react-async'
 import { firestore } from '../Firebase'
 
-const Awards = () => {
-  const [tables, setTables] = useState([])
-  const func = async () => {
-    if (tables.length !== 0) {
-      return
-    }
-    const newTables = []
-    const t =
-      (await firestore.collection('awards').orderBy('order', 'asc').get()) || []
-    const promises = []
-    t.forEach((doc) => {
-      const docs = doc.data()
-      const v = firestore
-        .collection('awards')
-        .doc(doc.id)
-        .collection('awards')
-        .orderBy(docs.sort_time, 'asc')
-        .get()
-        .then((q) => {
-          const newTable = []
-          q.forEach((row) => {
-            newTable.push(row.data())
-          })
-          newTables.push({
-            name: docs.name,
-            awards: newTable,
-          })
+const getAwards = async () => {
+  const newTables = []
+  const t =
+    (await firestore.collection('awards').orderBy('order', 'asc').get()) || []
+  const promises = []
+  t.forEach((doc) => {
+    const docs = doc.data()
+    const v = firestore
+      .collection('awards')
+      .doc(doc.id)
+      .collection('awards')
+      .orderBy(docs.sort_time, 'asc')
+      .get()
+      .then((q) => {
+        const newTable = []
+        q.forEach((row) => {
+          newTable.push(row.data())
         })
-      promises.push(v)
-    })
-    await Promise.all(promises)
-    if (newTables.length !== 0) {
-      setTables(newTables)
-    }
+        newTables.push({
+          name: docs.name,
+          awards: newTable,
+        })
+      })
+    promises.push(v)
+  })
+  await Promise.all(promises)
+  return newTables
+}
+
+const Awards = () => {
+  const { data: tables, error, isLoading: isPending, reload } = useAsync({
+    promiseFn: getAwards,
+  })
+
+  if (isPending) {
+    return <div>로딩중</div>
   }
 
-  func()
+  if (error) {
+    return <div>불러오기 실패</div>
+  }
+
+  if (!tables) {
+    return (
+      <button type="button" onClick={reload}>
+        불러오기
+      </button>
+    )
+  }
 
   return (
     <section id="main">
