@@ -78,7 +78,7 @@ const Nav = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/icewall-page">
         <header>
           <section id="top">
             <div
